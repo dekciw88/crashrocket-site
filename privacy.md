@@ -4,34 +4,6 @@ title: Privacy Policy — Crash Rocket
 
 # Privacy Policy — Crash Rocket
 
-<!-- banwords:ignore-start -->
-<!--
-  Служебная шапка, в публикуемый текст НЕ входит (всё, что ниже "---", — публикуемый текст).
-
-  Куда это идёт: Cowork создаёт публичный репозиторий dekciw88/crashrocket-site с GitHub Pages,
-  файл кладётся как /privacy, публичный адрес получается вида
-  https://dekciw88.github.io/crashrocket-site/privacy
-  Этот же адрес вставляется в Play Console (см. docs/play-console.md, экран 2) и в само
-  приложение (ссылка на экране настроек). Play требует, чтобы политика была доступна по
-  публичной ссылке без логина и упоминала название приложения — оба условия выполнены.
-
-  Что нужно заменить перед публикацией (два места, помечены в тексте):
-  - SUPPORT_EMAIL — контактный адрес поддержки. Личный gmail Alexander'а сюда сознательно не
-    подставлен: адрес в политике становится публичным навсегда и попадает в спам-базы. Решение
-    за оператором — либо завести отдельный ящик, либо согласиться на личный.
-  - дату "Last updated", если публикация сдвинется.
-
-  Версия текста описывает состояние на релиз 0.1.0 плюс SDK из TASKS/006 (MAX, Adjust,
-  Firebase), которые к моменту публикации в сторе уже будут в сборке. Если релиз уедет в стор
-  БЕЗ этих SDK — раздел "Third-party services" всё равно корректен: он говорит, какие сервисы
-  используются, а не обещает, что они уже включены. Обратный порядок (сначала опубликовать
-  без упоминания, потом добавить SDK) хуже: Play считает нарушением расхождение между
-  фактическим сбором и заявленным.
--->
-<!-- banwords:ignore-end -->
-
----
-
 **Last updated: 2 September 2026**
 
 This Privacy Policy explains what data the mobile game **Crash Rocket** (package
@@ -41,7 +13,7 @@ By installing or using the Game you agree to this policy.
 ## 1. Who we are
 
 Crash Rocket is developed and published by **Crash Games** (the "we", "us"). You can reach us at
-**SUPPORT_EMAIL** for any question about this policy or about the data associated with your device.
+**crashgames.support@gmail.com** for any question about this policy or about the data associated with your device.
 
 ## 2. We do not ask you to register
 
@@ -110,7 +82,7 @@ The Game is not directed to children. It is rated for teenagers and older, we de
 target audience on Google Play, and the Game shows an age confirmation screen on first launch.
 We do not knowingly collect data from anyone under the age at which consent is required in their
 country. If you believe a child has used the Game and you want the associated data removed,
-write to **SUPPORT_EMAIL** and we will delete it.
+write to **crashgames.support@gmail.com** and we will delete it.
 
 ## 8. Where data is processed and how long it is kept
 
@@ -128,7 +100,7 @@ uninstall the Game.
 
 Depending on where you live you may have the right to access, correct, export, restrict, or
 delete the data associated with your device, and to object to its processing. To exercise any of
-these rights, write to **SUPPORT_EMAIL** with the subject "Privacy request" and include your
+these rights, write to **crashgames.support@gmail.com** with the subject "Privacy request" and include your
 Advertising ID (Android: Settings → Privacy → Ads) so we can locate the records. We answer within
 30 days.
 
@@ -143,5 +115,5 @@ significant, show a notice inside the Game before the change takes effect.
 
 ## 11. Contact
 
-**SUPPORT_EMAIL**
+**crashgames.support@gmail.com**
 Crash Games — developer of Crash Rocket (`games.crash.rocket`)
