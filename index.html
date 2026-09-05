@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Crash Rocket — Free Casual Crash Game</title>
+<style>
+:root {
+  --bg: #0b0d17;
+  --bg-card: #161a2b;
+  --text: #f4f5f7;
+  --text-dim: #a7acc4;
+  --accent: #ffcc00;
+  --accent-text: #1a1400;
+}
+* { box-sizing: border-box; }
+html, body { overflow-x: hidden; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.4;
+}
+img, video { max-width: 100%; display: block; }
+a { color: inherit; }
+
+.cta {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  padding: 14px 20px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+}
+.header-icon { border-radius: 14px; flex: 0 0 auto; }
+.header-info { display: flex; flex-direction: column; flex: 1 1 auto; min-width: 0; }
+.header-title { font-weight: 700; font-size: 16px; }
+.header-meta { font-size: 13px; color: var(--text-dim); }
+.badge-cta { flex: 0 0 auto; padding: 10px 14px; font-size: 13px; }
+
+.hero {
+  padding: 8px 16px 24px;
+  text-align: center;
+}
+.phone-mockup {
+  max-width: 280px;
+  margin: 0 auto 20px;
+  border: 8px solid #232841;
+  border-radius: 32px;
+  overflow: hidden;
+  aspect-ratio: 9 / 19.5;
+}
+.hero-video { width: 100%; height: 100%; object-fit: cover; }
+.hero h1 { font-size: 28px; margin: 16px 0 8px; }
+.hero-sub { color: var(--text-dim); margin: 0 0 12px; }
+.compliance-line { font-size: 12px; color: var(--text-dim); max-width: 480px; margin: 0 auto; }
+
+.bonus { padding: 8px 16px 24px; }
+.bonus-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.bonus-title { font-size: 18px; font-weight: 700; margin: 0 0 14px; }
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px 16px 24px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+.feature-icon { font-size: 22px; }
+
+.screenshots { padding: 8px 0 24px; }
+.screenshots-row {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0 16px;
+}
+.screenshots-row img {
+  flex: 0 0 62%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 14px;
+  scroll-snap-align: center;
+}
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px 16px 24px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.review-card { background: var(--bg-card); border-radius: 12px; padding: 14px 16px; }
+.review-name { font-weight: 700; margin: 0 0 4px; }
+.review-stars { color: var(--accent); margin: 0 0 6px; }
+.review-text { color: var(--text-dim); margin: 0; font-size: 14px; }
+
+.final-cta { padding: 8px 16px 32px; text-align: center; }
+.final-cta .cta { width: 100%; max-width: 360px; padding: 16px 20px; font-size: 16px; }
+
+.site-footer {
+  padding: 16px 16px 96px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+.footer-links a { text-decoration: underline; }
+
+.sticky-cta {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(11, 13, 23, 0.95);
+  border-top: 1px solid #232841;
+}
+.sticky-cta.visible { display: block; }
+.sticky-cta .cta { display: block; width: 100%; }
+
+@media (min-width: 900px) {
+  .sticky-cta { display: none !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <img class="header-icon" src="assets/icon-512.png" width="64" height="64" alt="Crash Rocket icon">
+  <div class="header-info">
+    <span class="header-title" data-i18n="appName">Crash Rocket</span>
+    <span class="header-meta" id="headerMeta">★ 4.8 · 100K+ installs · Free</span>
+  </div>
+  <!-- .cta hrefs below are static fallbacks equal to CONFIG.playUrl; JS refreshes
+       them from CONFIG on load and adds referrer tracking on click. -->
+  <a class="cta badge-cta" href="https://play.google.com/store/apps/details?id=games.crash.rocket" data-i18n="headerCta">Get it on Google Play</a>
+</header>
+
+<section class="hero" id="hero">
+  <div class="phone-mockup">
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/gameplay-poster.jpg">
+      <source src="assets/gameplay.mp4" type="video/mp4">
+    </video>
+  </div>
+  <h1 data-i18n="heroH1">Launch. Cash out. Repeat.</h1>
+  <p class="hero-sub" data-i18n="heroSub">Free casual crash game — no real money, just the rush.</p>
+  <p class="compliance-line" data-i18n="complianceLine">Free to play. No real money gambling. Contains in-app purchases.</p>
+</section>
+
+<section class="bonus">
+  <div class="bonus-card">
+    <p class="bonus-title" id="bonusTitle">🎁 1,000,000 coins on install</p>
+    <a class="cta" href="https://play.google.com/store/apps/details?id=games.crash.rocket" data-i18n="bonusCta">Claim &amp; Download</a>
+  </div>
+</section>
+
+<section class="features">
+  <div class="feature"><span class="feature-icon" aria-hidden="true">📅</span><span data-i18n="feature1">Daily missions &amp; streaks</span></div>
+  <div class="feature"><span class="feature-icon" aria-hidden="true">🗺️</span><span data-i18n="feature2">Planet map, 50+ levels</span></div>
+  <div class="feature"><span class="feature-icon" aria-hidden="true">📴</span><span data-i18n="feature3">Play offline</span></div>
+</section>
+
+<section class="screenshots">
+  <div class="screenshots-row">
+    <img src="assets/shot-1.png" alt="Screenshot 1" loading="lazy">
+    <img src="assets/shot-2.png" alt="Screenshot 2" loading="lazy">
+    <img src="assets/shot-3.png" alt="Screenshot 3" loading="lazy">
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="review-card">
+    <p class="review-name">Alex P.</p>
+    <p class="review-stars" aria-hidden="true">★★★★★</p>
+    <p class="review-text">Placeholder review — quick, fun runs on my coffee break.</p>
+  </div>
+  <div class="review-card">
+    <p class="review-name">Jamie</p>
+    <p class="review-stars" aria-hidden="true">★★★★★</p>
+    <p class="review-text">Placeholder review — love the daily missions.</p>
+  </div>
+  <div class="review-card">
+    <p class="review-name">Sam</p>
+    <p class="review-stars" aria-hidden="true">★★★★★</p>
+    <p class="review-text">Placeholder review — clean graphics, no lag.</p>
+  </div>
+</section>
+
+<section class="final-cta">
+  <a class="cta" href="https://play.google.com/store/apps/details?id=games.crash.rocket" data-i18n="finalCta">Download free</a>
+</section>
+
+<footer class="site-footer">
+  <p class="compliance-line" data-i18n="complianceLine">Free to play. No real money gambling. Contains in-app purchases.</p>
+  <p class="footer-age">18+ · <span data-i18n="footerSuccess">Success in this game does not imply future success at real money gambling.</span></p>
+  <p class="footer-links">
+    <a href="./privacy" data-i18n="footerPrivacy">Privacy</a> ·
+    <a href="mailto:crashgames.support@gmail.com" data-i18n="footerContact">Contact</a>
+  </p>
+</footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <a class="cta" href="https://play.google.com/store/apps/details?id=games.crash.rocket" data-i18n="finalCta">Download free</a>
+</div>
+
+<script>
+// CONFIG is the single place a non-engineer edits: store link, pixel ID,
+// and the numbers shown under the app name. Nothing else in this file
+// should hardcode these values.
+const CONFIG = {
+  appName: 'Crash Rocket',
+  packageId: 'games.crash.rocket',
+  playUrl: 'https://play.google.com/store/apps/details?id=games.crash.rocket',
+  metaPixelId: '',                    // TODO: paste real Meta Pixel ID; empty = pixel not loaded
+  rating: '4.8', installs: '100K+',   // text under the app name, edit by hand
+  bonusCoins: '1,000,000',
+  privacyUrl: './privacy',
+  defaultLang: 'en'
+};
+
+// All on-page copy lives here so a language can be added later (de/fr/es)
+// without touching the markup — see the ?lang= handling in render().
+const COPY = {
+  en: {
+    appName: CONFIG.appName,
+    headerCta: 'Get it on Google Play',
+    heroH1: 'Launch. Cash out. Repeat.',
+    heroSub: 'Free casual crash game — no real money, just the rush.',
+    complianceLine: 'Free to play. No real money gambling. Contains in-app purchases.',
+    bonusCta: 'Claim & Download',
+    feature1: 'Daily missions & streaks',
+    feature2: 'Planet map, 50+ levels',
+    feature3: 'Play offline',
+    finalCta: 'Download free',
+    footerSuccess: 'Success in this game does not imply future success at real money gambling.',
+    footerPrivacy: 'Privacy',
+    footerContact: 'Contact',
+    // placeholder store reviews — swap for real ones once the app has a review history
+    reviews: [
+      { name: 'Alex P.', text: 'Placeholder review — quick, fun runs on my coffee break.' },
+      { name: 'Jamie', text: 'Placeholder review — love the daily missions.' },
+      { name: 'Sam', text: 'Placeholder review — clean graphics, no lag.' }
+    ]
+  }
+};
+
+// Reads utm_*/sub1-5/fbclid off this page's own URL and folds them into the
+// Play Store `referrer` param, so install attribution survives the redirect.
+function buildPlayUrl() {
+  const KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
+    'sub1', 'sub2', 'sub3', 'sub4', 'sub5', 'fbclid'];
+  const params = new URLSearchParams(window.location.search);
+  const pairs = [];
+  KEYS.forEach(function (key) {
+    const value = params.get(key);
+    if (value) pairs.push(key + '=' + encodeURIComponent(value));
+  });
+  if (pairs.length === 0) return CONFIG.playUrl;
+  return CONFIG.playUrl + '&referrer=' + encodeURIComponent(pairs.join('&'));
+}
+
+// Single handler wired to every .cta: fire the Lead pixel event (if the
+// pixel is configured and loaded), then hand off to the Play Store link.
+function onCtaClick(event) {
+  event.preventDefault();
+  if (CONFIG.metaPixelId && window.fbq) {
+    window.fbq('track', 'Lead');
+  }
+  window.location.href = buildPlayUrl();
+}
+
+// Standard Meta Pixel base snippet, only inserted when a real ID is set.
+function initPixel() {
+  if (!CONFIG.metaPixelId) return;
+  /* eslint-disable */
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  /* eslint-enable */
+  window.fbq('init', CONFIG.metaPixelId);
+  window.fbq('track', 'PageView');
+}
+
+function render() {
+  const params = new URLSearchParams(window.location.search);
+  const lang = params.get('lang');
+  const copy = COPY[lang] || COPY[CONFIG.defaultLang];
+
+  document.querySelectorAll('[data-i18n]').forEach(function (el) {
+    const key = el.getAttribute('data-i18n');
+    if (copy[key]) el.textContent = copy[key];
+  });
+  copy.reviews.forEach(function (r, i) {
+    const card = document.querySelectorAll('.review-card')[i];
+    if (!card) return;
+    card.querySelector('.review-name').textContent = r.name;
+    card.querySelector('.review-text').textContent = r.text;
+  });
+
+  document.getElementById('headerMeta').textContent =
+    '★ ' + CONFIG.rating + ' · ' + CONFIG.installs + ' · Free';
+  document.getElementById('bonusTitle').textContent =
+    '🎁 ' + CONFIG.bonusCoins + ' coins on install';
+
+  document.querySelectorAll('.cta').forEach(function (a) {
+    a.href = CONFIG.playUrl;
+    a.addEventListener('click', onCtaClick);
+  });
+  document.querySelector('.footer-links a[href="./privacy"]').href = CONFIG.privacyUrl;
+}
+
+function initStickyObserver() {
+  const hero = document.getElementById('hero');
+  const sticky = document.getElementById('stickyCta');
+  const observer = new IntersectionObserver(function (entries) {
+    sticky.classList.toggle('visible', !entries[0].isIntersecting);
+  }, { threshold: 0 });
+  observer.observe(hero);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  render();
+  initPixel();
+  initStickyObserver();
+});
+</script>
+</body>
+</html>
